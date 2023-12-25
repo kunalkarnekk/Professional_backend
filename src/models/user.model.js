@@ -3,7 +3,7 @@ import Jwt from "jsonwebtoken";
 import bcrypt from "bcrypt"
 const userSchema = new Schema(
     {
-        userName: {
+        username: {
             type: String,
             required: true,
             unique: true,
@@ -73,7 +73,7 @@ userSchema.methods.generateAccessToken = function () {
     )
 }
 
-userSchema.methods.generateRefToken = function () {
+userSchema.methods.generateRefreshToken = function () {
     return  Jwt.sign(
         {
             _id: this._id
